@@ -52,6 +52,35 @@ func triangle() {
 	fmt.Println(c)
 }
 
+func consts() {
+	const filename = "abc.txt"
+	const a, b = 3, 4
+	var c int = int(math.Sqrt(a*a + b*b)) //常量直接替换文本，就不用类型转换了
+
+	fmt.Println(filename, c)
+}
+
+func enums() {
+	const (
+		cpp = iota
+		java
+		_
+		python
+	)
+
+	const (
+		b = 1 << (10 * iota)
+		kb
+		mb
+		gb
+		tb
+		pb
+	)
+
+	fmt.Println(cpp, java, python)
+	fmt.Println(b, kb, mb, gb, tb, pb)
+}
+
 func main() {
 	variableZeroValue()
 	variableInitValue()
@@ -63,4 +92,8 @@ func main() {
 	euler()
 
 	triangle()
+
+	consts()
+
+	enums()
 }
