@@ -44,7 +44,7 @@ func apply(op func(int, int) int, a, b int) int {
 	//拿到函数的名字
 	p := reflect.ValueOf(op).Pointer()
 	funcName := runtime.FuncForPC(p).Name()
-	fmt.Printf("Calling function %s with args : %d,%d", funcName, a, b)
+	fmt.Printf("Calling function %s with args : (%d,%d)\n", funcName, a, b)
 	return op(a, b)
 }
 
@@ -53,8 +53,22 @@ func pow(a, b int) int {
 	return int(math.Pow(float64(a), float64(b)))
 }
 
+func swap(a, b *int) {
+	*b, *a = *a, *b
+
+}
+
 func main() {
 	fmt.Println(op(1, 3, ";"))
 	fmt.Println(div(13, 3))
 	fmt.Println(apply(pow, 2, 3))
+	// 匿名函数
+	fmt.Println(apply(func(a, b int) int {
+		return int(math.Pow(float64(a), float64(b)))
+	}, 2, 3))
+
+	//指针的使用
+	a, b := 3, 4
+	swap(&a, &b)
+	fmt.Println(a, b)
 }
