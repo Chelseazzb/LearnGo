@@ -12,9 +12,11 @@ var (
 	cc = "abc"
 )
 
+//go语言会给变量赋初值
 func variableZeroValue() {
 	var a int
 	var b string
+	//字符串的空值需要用printf来输出
 	fmt.Printf("%d, %q\n", a, b)
 }
 
@@ -52,6 +54,7 @@ func triangle() {
 	fmt.Println(c)
 }
 
+//定义常量
 func consts() {
 	const filename = "abc.txt"
 	const a, b = 3, 4
@@ -60,6 +63,7 @@ func consts() {
 	fmt.Println(filename, c)
 }
 
+//定义枚举类型
 func enums() {
 	const (
 		cpp = iota
@@ -81,19 +85,19 @@ func enums() {
 	fmt.Println(b, kb, mb, gb, tb, pb)
 }
 
-func main() {
-	variableZeroValue()
-	variableInitValue()
-	variableTypeDeduction()
-	variableShorter()
-
-	fmt.Println(aa, bb, cc)
-
-	euler()
-
-	triangle()
-
-	consts()
-
-	enums()
-}
+//func main() {
+//	variableZeroValue()
+//	variableInitValue()
+//	variableTypeDeduction()
+//	variableShorter()
+//
+//	fmt.Println(aa, bb, cc)
+//
+//	euler()
+//
+//	triangle()
+//
+//	consts()
+//
+//	enums()
+//}
